@@ -11,6 +11,9 @@
 		5AD5991F288C39EF000FEE86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5991E288C39EF000FEE86 /* ContentView.swift */; };
 		5AD59921288C39F0000FEE86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD59920288C39F0000FEE86 /* Assets.xcassets */; };
 		5AD59924288C39F0000FEE86 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD59923288C39F0000FEE86 /* Preview Assets.xcassets */; };
+		5AD5992B288C405B000FEE86 /* ScanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5992A288C405B000FEE86 /* ScanData.swift */; };
+		5AD59932288C502C000FEE86 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD59931288C502C000FEE86 /* ScannerView.swift */; };
+		5AD59934288C52D2000FEE86 /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD59933288C52D2000FEE86 /* TextRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		5AD5991E288C39EF000FEE86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5AD59920288C39F0000FEE86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AD59923288C39F0000FEE86 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5AD5992A288C405B000FEE86 /* ScanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanData.swift; sourceTree = "<group>"; };
+		5AD59931288C502C000FEE86 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		5AD59933288C52D2000FEE86 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +57,8 @@
 		5AD5991B288C39EF000FEE86 /* CamScanner */ = {
 			isa = PBXGroup;
 			children = (
+				5AD5992C288C4063000FEE86 /* Core */,
 				5AD5991C288C39EF000FEE86 /* CamScannerApp.swift */,
-				5AD5991E288C39EF000FEE86 /* ContentView.swift */,
 				5AD59920288C39F0000FEE86 /* Assets.xcassets */,
 				5AD59922288C39F0000FEE86 /* Preview Content */,
 			);
@@ -65,6 +71,49 @@
 				5AD59923288C39F0000FEE86 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5AD5992C288C4063000FEE86 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				5AD5992F288C4078000FEE86 /* Models */,
+				5AD5992E288C4071000FEE86 /* ViewModels */,
+				5AD5992D288C4068000FEE86 /* Views */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		5AD5992D288C4068000FEE86 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5AD59930288C5015000FEE86 /* ScannerView */,
+				5AD5991E288C39EF000FEE86 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5AD5992E288C4071000FEE86 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5AD5992F288C4078000FEE86 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5AD5992A288C405B000FEE86 /* ScanData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5AD59930288C5015000FEE86 /* ScannerView */ = {
+			isa = PBXGroup;
+			children = (
+				5AD59931288C502C000FEE86 /* ScannerView.swift */,
+				5AD59933288C52D2000FEE86 /* TextRecognizer.swift */,
+			);
+			path = ScannerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +187,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD5991F288C39EF000FEE86 /* ContentView.swift in Sources */,
+				5AD59932288C502C000FEE86 /* ScannerView.swift in Sources */,
+				5AD59934288C52D2000FEE86 /* TextRecognizer.swift in Sources */,
 				5AD5991D288C39EF000FEE86 /* CamScannerApp.swift in Sources */,
+				5AD5992B288C405B000FEE86 /* ScanData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +322,7 @@
 				DEVELOPMENT_TEAM = 92PU6D6MCQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +352,7 @@
 				DEVELOPMENT_TEAM = 92PU6D6MCQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
