@@ -11,6 +11,7 @@ struct ScanPreviewView: View {
     @ObservedObject var homeVM: HomeViewModel
     @ObservedObject var scanVM: ScannerViewModel
     @State private var currenImageIndex: Int = 0
+    @State private var showEditTextView: Bool = false
     @Binding var isShowScannerView: Bool
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
@@ -18,29 +19,30 @@ struct ScanPreviewView: View {
                 VStack(spacing: 0){
                     imageTabView(images: images)
                     imagesViewSection(images: images)
-                    saveCancelButtons
                 }
-                //.padding(.bottom, getRect().height / 10)
             }
-               
         }
         .background(Color.lightGray)
+        .overlay{
+            if scanVM.showLoader{
+                loaderView
+            }
+        }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                Text(scanVM.currentScan?.name ?? "NO NAME")
-                    .font(.headline)
-                    .foregroundColor(.black)
+                navigationTitle
+            }
+            ToolbarItemGroup(placement: .bottomBar) {
+                bottomBarContent
+                
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    
-                } label: {
-                    Image(systemName: "square.and.pencil")
-                        .foregroundColor(.accent)
-                }
-
+                changeFileNameButton
             }
+        }
+        .sheet(isPresented: $showEditTextView) {
+            EditScanTextView(scanVM: scanVM)
         }
     }
 }
@@ -49,6 +51,88 @@ struct ScanPreviewView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             ScanPreviewView(homeVM: HomeViewModel(), scanVM: ScannerViewModel(), isShowScannerView: .constant(false))
+        }
+    }
+}
+
+
+extension ScanPreviewView{
+    
+    private var navigationTitle: some View{
+        Text(scanVM.currentScan?.name ?? "NO NAME")
+            .font(.headline)
+            .foregroundColor(.black)
+    }
+ 
+    private var changeFileNameButton: some View{
+        Button {
+            
+        } label: {
+            Image(systemName: "square.and.pencil")
+                .foregroundColor(.accent)
+        }
+    }
+    
+    private var bottomBarContent: some View{
+        HStack(spacing: 0){
+            closeButton
+            Spacer()
+            recognizeButton
+            Spacer()
+            saveButton
+        }
+    }
+    private var closeButton: some View{
+        Button {
+            isShowScannerView = false
+        } label: {
+           Image(systemName: "xmark")
+                .padding(5)
+        }
+        .buttonStyle(.borderedProminent)
+        .tint(.secondaryGray.opacity(0.8))
+    }
+    
+    private var recognizeButton: some View{
+        Button {
+            scanVM.textRecognize {
+                showEditTextView.toggle()
+            }
+        } label: {
+            VStack(spacing: 5){
+                Image(systemName: "text.viewfinder")
+                Text("Recognize text")
+                    .font(.caption)
+                    .bold()
+            }
+        }
+        .disabled(scanVM.showLoader)
+    }
+    
+    private var saveButton: some View{
+        Button {
+            if let scan = scanVM.currentScan{
+                homeVM.addFile(scan: scan)
+                isShowScannerView = false
+            }
+        } label: {
+           Image(systemName: "checkmark")
+                .padding(5)
+        }
+        .buttonStyle(.borderedProminent)
+    }
+    
+    private var loaderView: some View{
+        VStack(spacing: 15){
+            ProgressView().scaleEffect(1.3)
+            Text("Text recognition...")
+                .font(.subheadline).bold()
+        }
+        .padding()
+        .background{
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.lightGray)
+                .shadow(color: .black.opacity(0.3), radius: 100, x: 0, y: 0)
         }
     }
 }
@@ -82,14 +166,8 @@ extension ScanPreviewView{
                         .resizable()
                         .scaledToFit()
                         .frame(width: 100, height: 150)
-                        .background{
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 5)
-                                    .fill(Color.white)
-                                    .shadow(color: .black.opacity(0.1), radius: 15, x: 0, y: 0)
-                                RoundedRectangle(cornerRadius: 5).stroke(lineWidth: 3).foregroundColor( index == currenImageIndex ? Color.accent : Color.clear)
-                            }
-                        }
+                        .background(Color.white, in: RoundedRectangle(cornerRadius: 5))
+                        .background( index == currenImageIndex ? Color.accent : Color.clear, in: RoundedRectangle(cornerRadius: 5).stroke(lineWidth: 5))
                         .overlay(alignment: .topTrailing){
                             Button {
                                 withAnimation {

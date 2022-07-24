@@ -1,6 +1,6 @@
 //
-//  ScannerView.swift
-//  CamScanner
+//  CameraScannerView.swift
+//
 //
 //  Created by Богдан Зыков on 23.07.2022.
 //
@@ -8,14 +8,14 @@
 import SwiftUI
 import VisionKit
 
-struct ScannerViewComponent: UIViewControllerRepresentable{
+struct CameraScannerView: UIViewControllerRepresentable{
    
 
 
     typealias UIViewControllerType = VNDocumentCameraViewController
     
-    
-    var completionHandler: (ScanModel?) -> Void
+
+    var completionHandler: ([UIImage]?) -> Void
     var didCancelScanning: () -> Void
     
    
@@ -38,15 +38,18 @@ struct ScannerViewComponent: UIViewControllerRepresentable{
    final class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate{
        
        
-       let scannerView: ScannerViewComponent
+       let scannerView: CameraScannerView
        
-       init(with scannerView: ScannerViewComponent) {
+       init(with scannerView: CameraScannerView) {
            self.scannerView = scannerView
        }
        
-       func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-           let recognizer = TextRecognizer(cameraScan: scan)
-           recognizer.recognizeText2(withCompletionHandler: scannerView.completionHandler)
+       func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) { 
+        
+           let images: [UIImage]? = (0..<scan.pageCount).compactMap({
+               return scan.imageOfPage(at:$0)
+           })
+           scannerView.completionHandler(images)
        }
        
        func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController) {
@@ -59,6 +62,10 @@ struct ScannerViewComponent: UIViewControllerRepresentable{
        }
     }
 }
+
+
+
+
 
 
 

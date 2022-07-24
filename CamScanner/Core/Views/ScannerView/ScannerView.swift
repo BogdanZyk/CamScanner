@@ -36,16 +36,16 @@ struct ScannerView_Previews: PreviewProvider {
 
 
 extension ScannerView{
-    private func makeScannerView() -> ScannerViewComponent{
+    private func makeScannerView() -> CameraScannerView{
         
-        ScannerViewComponent { scan in
-            if let outputScan = scan {
-                scanVM.currentScan = outputScan
-                self.showScanPreviewView = true
+
+        CameraScannerView { returnImages in
+            if let images = returnImages{
+                scanVM.createScanModel(scannedPages: images)
+                showScanPreviewView = true
             }
-            
         } didCancelScanning: {
-            self.isShowScannerView = false
+            isShowScannerView = false
         }
     }
 }
