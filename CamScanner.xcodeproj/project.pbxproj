@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A6407DC288D54CA00075057 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6407DB288D54CA00075057 /* ScannerView.swift */; };
+		5A6407E0288D5F8D00075057 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6407DF288D5F8D00075057 /* ScannerViewModel.swift */; };
+		5A6407E3288D694000075057 /* ScanPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6407E2288D694000075057 /* ScanPreviewView.swift */; };
+		5A6407E5288D819900075057 /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6407E4288D819900075057 /* CustomButtonView.swift */; };
+		5A6407E7288D8B3800075057 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6407E6288D8B3800075057 /* ShareSheet.swift */; };
+		5A6407EA288D8BFC00075057 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6407E9288D8BFC00075057 /* SettingsView.swift */; };
 		5AD5991D288C39EF000FEE86 /* CamScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5991C288C39EF000FEE86 /* CamScannerApp.swift */; };
 		5AD5991F288C39EF000FEE86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5991E288C39EF000FEE86 /* ContentView.swift */; };
 		5AD59921288C39F0000FEE86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD59920288C39F0000FEE86 /* Assets.xcassets */; };
 		5AD59924288C39F0000FEE86 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD59923288C39F0000FEE86 /* Preview Assets.xcassets */; };
 		5AD5992B288C405B000FEE86 /* ScanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5992A288C405B000FEE86 /* ScanData.swift */; };
-		5AD59932288C502C000FEE86 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD59931288C502C000FEE86 /* ScannerView.swift */; };
+		5AD59932288C502C000FEE86 /* ScannerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD59931288C502C000FEE86 /* ScannerViewComponent.swift */; };
 		5AD59934288C52D2000FEE86 /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD59933288C52D2000FEE86 /* TextRecognizer.swift */; };
 		5AD59937288C6A78000FEE86 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD59936288C6A78000FEE86 /* StartView.swift */; };
 		5AD5993B288C6E67000FEE86 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5993A288C6E67000FEE86 /* LocalFileManager.swift */; };
@@ -28,13 +34,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A6407DB288D54CA00075057 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		5A6407DF288D5F8D00075057 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
+		5A6407E2288D694000075057 /* ScanPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPreviewView.swift; sourceTree = "<group>"; };
+		5A6407E4288D819900075057 /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
+		5A6407E6288D8B3800075057 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		5A6407E9288D8BFC00075057 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5AD59919288C39EF000FEE86 /* CamScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CamScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD5991C288C39EF000FEE86 /* CamScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamScannerApp.swift; sourceTree = "<group>"; };
 		5AD5991E288C39EF000FEE86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5AD59920288C39F0000FEE86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AD59923288C39F0000FEE86 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5AD5992A288C405B000FEE86 /* ScanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanData.swift; sourceTree = "<group>"; };
-		5AD59931288C502C000FEE86 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		5AD59931288C502C000FEE86 /* ScannerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewComponent.swift; sourceTree = "<group>"; };
 		5AD59933288C52D2000FEE86 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
 		5AD59936288C6A78000FEE86 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		5AD5993A288C6E67000FEE86 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
@@ -60,6 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A6407E1288D692300075057 /* ScanPreviewView */ = {
+			isa = PBXGroup;
+			children = (
+				5A6407E2288D694000075057 /* ScanPreviewView.swift */,
+			);
+			path = ScanPreviewView;
+			sourceTree = "<group>";
+		};
+		5A6407E8288D8BF000075057 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				5A6407E9288D8BFC00075057 /* SettingsView.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
 		5AD59910288C39EF000FEE86 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +139,8 @@
 		5AD5992D288C4068000FEE86 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5A6407E8288D8BF000075057 /* SettingsView */,
+				5A6407E1288D692300075057 /* ScanPreviewView */,
 				5AF8477E288CC6560050ACF8 /* Components */,
 				5AD59941288C7511000FEE86 /* HomeView */,
 				5AD59930288C5015000FEE86 /* ScannerView */,
@@ -140,8 +170,10 @@
 		5AD59930288C5015000FEE86 /* ScannerView */ = {
 			isa = PBXGroup;
 			children = (
-				5AD59931288C502C000FEE86 /* ScannerView.swift */,
+				5AD59931288C502C000FEE86 /* ScannerViewComponent.swift */,
 				5AD59933288C52D2000FEE86 /* TextRecognizer.swift */,
+				5A6407DB288D54CA00075057 /* ScannerView.swift */,
+				5A6407DF288D5F8D00075057 /* ScannerViewModel.swift */,
 			);
 			path = ScannerView;
 			sourceTree = "<group>";
@@ -150,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD5993A288C6E67000FEE86 /* LocalFileManager.swift */,
+				5A6407E6288D8B3800075057 /* ShareSheet.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -185,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				5AF8477F288CC6670050ACF8 /* TextFieldAlert.swift */,
+				5A6407E4288D819900075057 /* CustomButtonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -262,19 +296,25 @@
 				5AF84780288CC6680050ACF8 /* TextFieldAlert.swift in Sources */,
 				5AD5991F288C39EF000FEE86 /* ContentView.swift in Sources */,
 				5AD59945288C7531000FEE86 /* HomeViewModel.swift in Sources */,
-				5AD59932288C502C000FEE86 /* ScannerView.swift in Sources */,
+				5A6407DC288D54CA00075057 /* ScannerView.swift in Sources */,
+				5AD59932288C502C000FEE86 /* ScannerViewComponent.swift in Sources */,
 				5AFFA280288CA21900C658CF /* CoreDataContainer.xcdatamodeld in Sources */,
 				5AF8477D288CBB730050ACF8 /* CustomCorners.swift in Sources */,
+				5A6407E3288D694000075057 /* ScanPreviewView.swift in Sources */,
 				5AD59934288C52D2000FEE86 /* TextRecognizer.swift in Sources */,
 				5AD59943288C7523000FEE86 /* HomeView.swift in Sources */,
 				5AD59937288C6A78000FEE86 /* StartView.swift in Sources */,
 				5AD5991D288C39EF000FEE86 /* CamScannerApp.swift in Sources */,
 				5AFFA27A288CA04B00C658CF /* CoreDataManager.swift in Sources */,
+				5A6407E7288D8B3800075057 /* ShareSheet.swift in Sources */,
 				5AD59947288C75D8000FEE86 /* AppConstants.swift in Sources */,
+				5A6407E0288D5F8D00075057 /* ScannerViewModel.swift in Sources */,
+				5A6407E5288D819900075057 /* CustomButtonView.swift in Sources */,
 				5AD59940288C7283000FEE86 /* View.swift in Sources */,
 				5AD5993E288C6EBF000FEE86 /* Color.swift in Sources */,
 				5AD5992B288C405B000FEE86 /* ScanData.swift in Sources */,
 				5AD5993B288C6E67000FEE86 /* LocalFileManager.swift in Sources */,
+				5A6407EA288D8BFC00075057 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

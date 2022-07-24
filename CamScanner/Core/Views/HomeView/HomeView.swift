@@ -141,7 +141,7 @@ extension HomeView{
                     List {
                         ForEach(files) { file in
                             HStack{
-                                Text(file.name?.prefix(20).appending("...") ?? "No name")
+                                Text(file.name ?? "No name")
                                 Spacer()
                                
                             }

@@ -21,16 +21,14 @@ struct ContentView: View {
                 HomeView()
                     .environmentObject(homeVM)
                 .tag(Tab.main)
-                NavigationView {
-                    Text("Settings")
-                }
+                
+                SettingsView()
                 .tag(Tab.setting)
             }
             tabBarView
         }
         .fullScreenCover(isPresented: $showScanner) {
-            makeScannerView()
-                .ignoresSafeArea()
+            ScannerView(homeVM: homeVM, isShowScannerView: $showScanner)
         }
     }
 }
@@ -47,17 +45,17 @@ extension ContentView{
         case main = "house.fill"
         case setting = "gearshape.fill"
     }
-    private func makeScannerView() -> ScannerView{
-        ScannerView { textPerPage in
-            if let outputText = textPerPage?.joined(separator: "\n").trimmingCharacters(in: .whitespaces){
-                //let newScanDate = ScanData(content: outputText)
-            
-                homeVM.addFile(name: outputText, inFolder: nil)
-                //self.texts.append(newScanDate)
-            }
-            self.showScanner = false
-        }
-    }
+//    private func makeScannerView() -> ScannerView{
+//        ScannerView { textPerPage in
+//            if let outputText = textPerPage?.joined(separator: "\n").trimmingCharacters(in: .whitespaces){
+//                //let newScanDate = ScanData(content: outputText)
+//
+//                homeVM.addFile(name: outputText, inFolder: nil)
+//                //self.texts.append(newScanDate)
+//            }
+//            self.showScanner = false
+//        }
+//    }
     
     private var tabBarView: some View{
         HStack(spacing: 0){

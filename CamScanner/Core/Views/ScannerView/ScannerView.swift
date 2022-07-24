@@ -2,62 +2,50 @@
 //  ScannerView.swift
 //  CamScanner
 //
-//  Created by Богдан Зыков on 23.07.2022.
+//  Created by Богдан Зыков on 24.07.2022.
 //
 
 import SwiftUI
-import VisionKit
 
-struct ScannerView: UIViewControllerRepresentable{
-   
-    
-
-
-    typealias UIViewControllerType = VNDocumentCameraViewController
-    
-    
-    private let completionHandler: ([String]?) -> Void
-    
-    init(completion: @escaping ([String]?) -> Void){
-        self.completionHandler = completion
-    }
-    
-    func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
-        let viewController = VNDocumentCameraViewController()
-        viewController.delegate = context.coordinator
-        return viewController
-    }
-    
-    func updateUIViewController(_ uiViewController: VNDocumentCameraViewController, context: Context) {
-        
-    }
-    
-    
-    func makeCoordinator() -> Coordinator {
-        return Coordinator(completionHandler: completionHandler)
-    }
-    
-   final class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate{
-        private let completionHandler: ([String]?) -> Void
-        
-        init(completionHandler: @escaping ([String]?) -> Void) {
-            self.completionHandler = completionHandler
+struct ScannerView: View {
+    @StateObject var scanVM = ScannerViewModel()
+    @ObservedObject var homeVM: HomeViewModel
+    @Binding var isShowScannerView: Bool
+    @State private var showScanPreviewView: Bool = false
+    var body: some View {
+        NavigationView {
+            ZStack{
+                makeScannerView()
+                    .ignoresSafeArea()
+                NavigationLink(isActive: $showScanPreviewView) {
+                    ScanPreviewView(homeVM: homeVM, scanVM: scanVM, isShowScannerView: $isShowScannerView)
+                } label: {
+                    EmptyView()
+                }
+            }
+            .navigationBarHidden(true)
         }
-       
-       func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-           let recognizer = TextRecognizer(cameraScan: scan)
-           recognizer.recognizeText(withCompletionHandler: completionHandler)
-       }
-       
-       func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController) {
-           completionHandler(nil)
-       }
-       
-       func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFailWithError error: Error) {
-           print(error.localizedDescription)
-           completionHandler(nil)
-       }
     }
-
 }
 
+struct ScannerView_Previews: PreviewProvider {
+    static var previews: some View {
+        ScannerView(homeVM: HomeViewModel(), isShowScannerView: .constant(true))
+    }
+}
+
+
+extension ScannerView{
+    private func makeScannerView() -> ScannerViewComponent{
+        
+        ScannerViewComponent { scan in
+            if let outputScan = scan {
+                scanVM.currentScan = outputScan
+                self.showScanPreviewView = true
+            }
+            
+        } didCancelScanning: {
+            self.isShowScannerView = false
+        }
+    }
+}

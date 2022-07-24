@@ -6,7 +6,9 @@
         <relationship name="rootFolder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RootFolder" inverseName="folders" inverseEntity="RootFolder"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="content" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="previewImage" optional="YES" attributeType="Binary"/>
         <relationship name="folder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="items" inverseEntity="Folder"/>
         <relationship name="rootFolder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RootFolder" inverseName="items" inverseEntity="RootFolder"/>
     </entity>
@@ -17,7 +19,7 @@
     </entity>
     <elements>
         <element name="Folder" positionX="-658.84765625" positionY="-257.0390625" width="128" height="88"/>
-        <element name="Item" positionX="9.84765625" positionY="-258.28515625" width="128" height="88"/>
+        <element name="Item" positionX="9.84765625" positionY="-258.28515625" width="128" height="104"/>
         <element name="RootFolder" positionX="-325.09765625" positionY="75.75390625" width="128" height="74"/>
     </elements>
 </model>

@@ -16,6 +16,7 @@ final class HomeViewModel: ObservableObject{
     @Published var currentFiles: [Item]?
     @Published var createFolderName: String = ""
     @Published var currentSelectedFolder: SelectFolderModel?
+ 
     
     init(){
         getFolders()
@@ -47,10 +48,15 @@ final class HomeViewModel: ObservableObject{
         save()
     }
     
-    public func addFile(name: String, inFolder: Folder?){
+    public func addFile(scan: ScanModel){
+        
+        let folders = rootFolder?.folders?.allObjects as? [Folder]
+        let folder = folders?.first(where: {$0.name == currentSelectedFolder?.name})
+        
         let file = Item(context: coreDataManager.context)
-        file.name = name
-        file.folder = inFolder
+        file.name = scan.name
+        file.content = scan.content
+        file.folder = folder
         file.rootFolder = rootFolder
         save()
     }
