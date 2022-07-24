@@ -26,6 +26,7 @@ final class TextRecognizer{
                 self.cameraScan.imageOfPage(at:$0).cgImage
             })
             
+      
             let imageAndRequests = images.map({(image: $0, request: VNRecognizeTextRequest())})
             let textPerPage = imageAndRequests.map { (image, request) -> String  in
                 let handler = VNImageRequestHandler(cgImage: image, options: [:])
