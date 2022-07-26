@@ -9,14 +9,14 @@ import SwiftUI
 
 struct EditScanTextView: View {
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var scanVM: ScannerViewModel
+    @Binding var scanText: String
     @State private var isChange: Bool = false
     var body: some View {
         VStack{
             navigationView
-            TextEditor(text: $scanVM.scanText)
+            TextEditor(text: $scanText)
         }
-        .onChange(of: scanVM.scanText) { _ in
+        .onChange(of: scanText) { _ in
             isChange = true
         }
     }
@@ -24,7 +24,7 @@ struct EditScanTextView: View {
 
 struct EditScanTextView_Previews: PreviewProvider {
     static var previews: some View {
-        EditScanTextView(scanVM: ScannerViewModel())
+        EditScanTextView(scanText: .constant("trtr"))
     }
 }
 
@@ -39,7 +39,6 @@ extension EditScanTextView{
                     .font(.title3).bold()
                 Spacer()
                 Button("Save", action: {
-                    scanVM.saveRecognizeText()
                     dismiss()
                 })
                 .disabled(!isChange)

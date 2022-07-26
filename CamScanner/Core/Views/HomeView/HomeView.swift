@@ -10,8 +10,8 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var homeVM: HomeViewModel
     @State private var createFolderAlert: Bool = false
+    @State private var showDetailsView: Bool = false
     var body: some View {
-        NavigationView {
             ZStack(alignment: .bottom) {
                 VStack(alignment: .leading, spacing: 10) {
                     navigationSection
@@ -19,6 +19,11 @@ struct HomeView: View {
                     Spacer()
                 }
                 foldersFilesView
+                NavigationLink(isActive: $showDetailsView) {
+                    FileDetailsView(homeVM: homeVM)
+                } label: {
+                    EmptyView()
+                }
             }
             .background(Color.lightGray)
             .navigationBarTitleDisplayMode(.inline)
@@ -30,7 +35,6 @@ struct HomeView: View {
                 }
             }
             .textFieldAlert(isShowing: $createFolderAlert, text: $homeVM.createFolderName, title: "Create new folder", saveAction: homeVM.addFolder)
-        }
     }
 }
 
@@ -136,20 +140,38 @@ extension HomeView{
                 Text("FOLDERS FILES")
                     .foregroundColor(.secondary)
                     .padding(.leading)
-            //ScrollView{
                 if let files = homeVM.currentSelectedFolder?.items, !files.isEmpty{
                     List {
                         ForEach(files) { file in
-                            HStack{
-                                Text(file.name ?? "No name")
+                            HStack(alignment: .top, spacing: 15){
+                                if let data = file.images, let images = Helpers.unarchivedImageData(imageData: data), let image = images.first{
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .frame(width: 80, height: 100)
+                                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                                    VStack(alignment: .leading, spacing: 0){
+                                        Text(file.name ?? "No name")
+                                            .font(.body).bold()
+                                        Spacer()
+                                        Label("\(images.count)", systemImage: "doc.on.doc.fill")
+                                            .foregroundColor(Color.secondaryGray)
+                                            .font(.subheadline)
+                                    }
+                                    .padding(.vertical, 10)
+                                }
                                 Spacer()
-                               
+                                
                             }
-                            .padding(.vertical)
+                            .padding(.vertical, 5)
+                            .onTapGesture {
+                                homeVM.currentItem = file
+                                showDetailsView.toggle()
+                            }
                         }
                         .onDelete { index in
                             homeVM.deleteFile(index: index.first)
                         }
+                        
                     }
                     .listStyle(.plain)
                 }else{
@@ -157,11 +179,10 @@ extension HomeView{
                         .animation(nil, value: UUID())
                     Spacer()
                 }
-            //}
-            //.disabled(homeVM.currentSelectedFolder?.items?.isEmpty ?? true)
         }
         .padding([.top])
-        .frame(maxWidth: .infinity, maxHeight: getRect().height / 1.9, alignment: .leading)
+        
+        .frame(maxWidth: .infinity, maxHeight: getRect().height / 1.55, alignment: .leading)
         .background(Color.white.clipShape(CustomCorners(corners: [.topRight, .topLeft], radius: 20)).shadow(color: .black.opacity(0.1), radius: 15, x: 0, y: 0))
     }
     

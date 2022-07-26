@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		5A29780A288DC5530099373D /* EditScanTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A297809288DC5530099373D /* EditScanTextView.swift */; };
+		5A29780C288DE5AF0099373D /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A29780B288DE5AF0099373D /* Helpers.swift */; };
+		5A29780F288DFC1A0099373D /* FileDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A29780E288DFC1A0099373D /* FileDetailsView.swift */; };
 		5A6407DC288D54CA00075057 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6407DB288D54CA00075057 /* ScannerView.swift */; };
 		5A6407E0288D5F8D00075057 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6407DF288D5F8D00075057 /* ScannerViewModel.swift */; };
 		5A6407E3288D694000075057 /* ScanPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6407E2288D694000075057 /* ScanPreviewView.swift */; };
 		5A6407E5288D819900075057 /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6407E4288D819900075057 /* CustomButtonView.swift */; };
 		5A6407E7288D8B3800075057 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6407E6288D8B3800075057 /* ShareSheet.swift */; };
 		5A6407EA288D8BFC00075057 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6407E9288D8BFC00075057 /* SettingsView.swift */; };
+		5A98C39A28906AE300DEB791 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98C39928906AE300DEB791 /* Array.swift */; };
+		5A98C39C28906E9000DEB791 /* FileDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98C39B28906E9000DEB791 /* FileDetailsViewModel.swift */; };
 		5AD5991D288C39EF000FEE86 /* CamScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5991C288C39EF000FEE86 /* CamScannerApp.swift */; };
 		5AD5991F288C39EF000FEE86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5991E288C39EF000FEE86 /* ContentView.swift */; };
 		5AD59921288C39F0000FEE86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD59920288C39F0000FEE86 /* Assets.xcassets */; };
@@ -36,12 +40,16 @@
 
 /* Begin PBXFileReference section */
 		5A297809288DC5530099373D /* EditScanTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditScanTextView.swift; sourceTree = "<group>"; };
+		5A29780B288DE5AF0099373D /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		5A29780E288DFC1A0099373D /* FileDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDetailsView.swift; sourceTree = "<group>"; };
 		5A6407DB288D54CA00075057 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		5A6407DF288D5F8D00075057 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		5A6407E2288D694000075057 /* ScanPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPreviewView.swift; sourceTree = "<group>"; };
 		5A6407E4288D819900075057 /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
 		5A6407E6288D8B3800075057 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		5A6407E9288D8BFC00075057 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5A98C39928906AE300DEB791 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		5A98C39B28906E9000DEB791 /* FileDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDetailsViewModel.swift; sourceTree = "<group>"; };
 		5AD59919288C39EF000FEE86 /* CamScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CamScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD5991C288C39EF000FEE86 /* CamScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamScannerApp.swift; sourceTree = "<group>"; };
 		5AD5991E288C39EF000FEE86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A29780D288DFC020099373D /* FileDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				5A29780E288DFC1A0099373D /* FileDetailsView.swift */,
+			);
+			path = FileDetailsView;
+			sourceTree = "<group>";
+		};
 		5A6407E1288D692300075057 /* ScanPreviewView */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +157,7 @@
 		5AD5992D288C4068000FEE86 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5A29780D288DFC020099373D /* FileDetailsView */,
 				5A6407E8288D8BF000075057 /* SettingsView */,
 				5A6407E1288D692300075057 /* ScanPreviewView */,
 				5AF8477E288CC6560050ACF8 /* Components */,
@@ -156,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD59944288C7531000FEE86 /* HomeViewModel.swift */,
+				5A98C39B28906E9000DEB791 /* FileDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -186,6 +204,7 @@
 				5AD5993A288C6E67000FEE86 /* LocalFileManager.swift */,
 				5A6407E6288D8B3800075057 /* ShareSheet.swift */,
 				5AD59933288C52D2000FEE86 /* TextRecognizer.swift */,
+				5A29780B288DE5AF0099373D /* Helpers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -205,6 +224,7 @@
 				5AD5993D288C6EBF000FEE86 /* Color.swift */,
 				5AD5993F288C7283000FEE86 /* View.swift */,
 				5AF8477C288CBB730050ACF8 /* CustomCorners.swift */,
+				5A98C39928906AE300DEB791 /* Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -302,8 +322,10 @@
 				5A6407DC288D54CA00075057 /* ScannerView.swift in Sources */,
 				5AD59932288C502C000FEE86 /* CameraScannerView.swift in Sources */,
 				5AFFA280288CA21900C658CF /* CoreDataContainer.xcdatamodeld in Sources */,
+				5A29780F288DFC1A0099373D /* FileDetailsView.swift in Sources */,
 				5AF8477D288CBB730050ACF8 /* CustomCorners.swift in Sources */,
 				5A6407E3288D694000075057 /* ScanPreviewView.swift in Sources */,
+				5A98C39A28906AE300DEB791 /* Array.swift in Sources */,
 				5AD59934288C52D2000FEE86 /* TextRecognizer.swift in Sources */,
 				5AD59943288C7523000FEE86 /* HomeView.swift in Sources */,
 				5AD59937288C6A78000FEE86 /* StartView.swift in Sources */,
@@ -315,8 +337,10 @@
 				5A6407E5288D819900075057 /* CustomButtonView.swift in Sources */,
 				5AD59940288C7283000FEE86 /* View.swift in Sources */,
 				5AD5993E288C6EBF000FEE86 /* Color.swift in Sources */,
+				5A29780C288DE5AF0099373D /* Helpers.swift in Sources */,
 				5AD5992B288C405B000FEE86 /* ScanData.swift in Sources */,
 				5AD5993B288C6E67000FEE86 /* LocalFileManager.swift in Sources */,
+				5A98C39C28906E9000DEB791 /* FileDetailsViewModel.swift in Sources */,
 				5A29780A288DC5530099373D /* EditScanTextView.swift in Sources */,
 				5A6407EA288D8BFC00075057 /* SettingsView.swift in Sources */,
 			);

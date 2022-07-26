@@ -7,20 +7,22 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 
 final class HomeViewModel: ObservableObject{
     
     let coreDataManager = CoreDataManager.instace
     @Published var rootFolder: RootFolder?
-    @Published var currentFiles: [Item]?
+    //@Published var currentFiles: [Item]?
     @Published var createFolderName: String = ""
     @Published var currentSelectedFolder: SelectFolderModel?
- 
+    @Published var currentItem: Item?
+    
+   
     
     init(){
         getFolders()
-        //addFile(name: "Test file", inFolder: nil)
     }
     
     private func getFolders(){
@@ -56,6 +58,10 @@ final class HomeViewModel: ObservableObject{
         let file = Item(context: coreDataManager.context)
         file.name = scan.name
         file.content = scan.content
+        if let images = scan.scannedPages{
+            file.images = Helpers.archiveImageData(images: images)
+        }
+            
         file.folder = folder
         file.rootFolder = rootFolder
         save()
@@ -69,10 +75,10 @@ final class HomeViewModel: ObservableObject{
     
     
     public func deleteFolder(folder: Folder){
-        //let rootFolder = RootFolder(context: coreDataManager.context)
         coreDataManager.context.delete(folder)
         save()
     }
+    
     
     private func save(){
         coreDataManager.save()

@@ -42,7 +42,7 @@ struct ScanPreviewView: View {
             }
         }
         .sheet(isPresented: $showEditTextView) {
-            EditScanTextView(scanVM: scanVM)
+            EditScanTextView(scanText: $scanVM.scanText)
         }
     }
 }

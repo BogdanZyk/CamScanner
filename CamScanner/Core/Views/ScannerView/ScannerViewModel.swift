@@ -21,9 +21,7 @@ final class ScannerViewModel: ObservableObject {
 //    @Published var mockScan: ScanModel? = ScanModel(name: "SCAN-\(Date().formatted(.dateTime))", scannedPages: [UIImage(systemName: "sun.haze.fill")!, UIImage(systemName: "cloud.drizzle.fill")!, UIImage(systemName: "cloud.drizzle.fill")!, UIImage(systemName: "cloud.drizzle.fill")!], content: "Test content!")
 //
     
-    deinit{
-        print("DEINIT SCANER VM")
-    }
+
     
     public func deleteImage(index: Int){
         currentScan?.scannedPages?.remove(at: index)
@@ -58,9 +56,4 @@ final class ScannerViewModel: ObservableObject {
 
 
 
-struct ScanModel: Identifiable{
-    var id = UUID()
-    var name: String?
-    var scannedPages: [UIImage]?
-    var content: String?
-}
+

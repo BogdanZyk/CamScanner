@@ -18,14 +18,27 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $currentTab) {
-                HomeView()
-                    .environmentObject(homeVM)
+                NavigationView{
+                    ZStack(alignment: .bottom){
+                        HomeView()
+                            .environmentObject(homeVM)
+                        tabBarView
+                    }
+                    .ignoresSafeArea(.all, edges: .bottom)
+                   
+                       
+                }
                 .tag(Tab.main)
                 
-                SettingsView()
+                NavigationView{
+                    ZStack(alignment: .bottom){
+                        SettingsView()
+                        tabBarView
+                    }
+                    .ignoresSafeArea(.all, edges: .bottom)
+                }
                 .tag(Tab.setting)
             }
-            tabBarView
         }
         .fullScreenCover(isPresented: $showScanner) {
             ScannerView(homeVM: homeVM, isShowScannerView: $showScanner)
@@ -76,7 +89,7 @@ extension ContentView{
                 .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 0)
         }
         .padding(.horizontal)
-        
+        .padding(.bottom, 30)
     }
     
     

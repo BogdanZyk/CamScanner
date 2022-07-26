@@ -6,14 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 
-
-struct ScanData: Identifiable{
+struct ScanModel: Identifiable{
     var id = UUID()
-    let content: String
-    
-    
-    init(content: String){
-        self.content = content
-    }
+    var name: String?
+    var scannedPages: [UIImage]?
+    var content: String?
 }

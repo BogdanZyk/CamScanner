@@ -21,6 +21,7 @@ struct SettingsView: View {
             }
 
         }
+        .allFrame()
         .sheet(isPresented: $showShare) {
             ShareSheet(items: items)
         }
