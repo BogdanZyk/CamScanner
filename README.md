@@ -9,6 +9,7 @@ An application for scanning and recognising text from an image or camera, creati
 - MVVM architecture
 - Combine Framework
 - Core Data
+- VisionKit
 - Devices: iphone
 
 
