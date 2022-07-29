@@ -31,7 +31,7 @@ final class FileDetailsViewModel: ObservableObject{
     
     public func createPdf(){
         showLoader = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.createPDFFile()
             self.showLoader = false
         }
